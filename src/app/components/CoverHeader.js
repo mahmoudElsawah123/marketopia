@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect } from "react";
-import FirstCover from "/public/image/young-friends-working-together-fitness-class.jpg";
-import SecondCover from "/public/image/kid-his-father-doing-sport-home.jpg";
+import FirstCover from "/public/image/young-friends-working-together-fitness-class.webp";
+import SecondCover from "/public/image/kid-his-father-doing-sport-home.webp";
 import { FaAnglesRight } from "react-icons/fa6";
 
 import { Swiper, SwiperSlide } from "swiper/react";
