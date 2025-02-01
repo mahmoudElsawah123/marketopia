@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react'
-import ImageBanner1 from "/public/image/service-04.jpg";
-import ImageBanner2 from "/public/image/service-09.jpg";
-import ImageBanner3 from "/public/image/service-01.jpg";
+import ImageBanner1 from "/public/image/service-04.webp";
+import ImageBanner2 from "/public/image/service-09.webp";
+import ImageBanner3 from "/public/image/service-01.webp";
 import { FaAnglesRight } from 'react-icons/fa6';
 import PaginationComponent from './PaginationComponent';
 

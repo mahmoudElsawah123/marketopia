@@ -1,8 +1,8 @@
 import React from "react";
 import { FaAnglesRight } from "react-icons/fa6";
-import icon1 from '/public/image/sleep.png'
+import icon1 from '/public/image/sleep.webp'
 import icon2 from '/public/image/vitamin testing.png'
-import icon3 from '/public/image/holistic health.png'
+import icon3 from '/public/image/holistic health.webp'
 import Image from "next/image";
 
 const data = [

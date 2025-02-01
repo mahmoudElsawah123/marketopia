@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import cover from "/public/image/service-breacumb-2.jpg";
+import cover from "/public/image/service-breacumb-2.webp";
 import Link from "next/link";
 const PagesBanner = ({ title, subtitle }) => {
   return (

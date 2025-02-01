@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import galleryImage1 from "/public/image/gallery-01.jpg";
-import galleryImage2 from "/public/image/gallery-03.jpg";
-import galleryImage3 from "/public/image/gallery-04.jpg";
-import galleryImage4 from "/public/image/gallery-05.jpg";
+import galleryImage1 from "/public/image/gallery-01.webp";
+import galleryImage2 from "/public/image/gallery-03.webp";
+import galleryImage3 from "/public/image/gallery-04.webp";
+import galleryImage4 from "/public/image/gallery-05.webp";
 import { Autoplay } from "swiper/modules";
 import Image from "next/image";
 import { IoMdClose } from "react-icons/io";
