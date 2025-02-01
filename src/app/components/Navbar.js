@@ -1,29 +1,83 @@
 "use client";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import Image from "next/image";
 import logo from "/public/image/logo2.svg";
 import { HiMenuAlt1 } from "react-icons/hi";
 import { FaAnglesRight } from "react-icons/fa6";
-
 import { LuSun } from "react-icons/lu";
 import { FaRegMoon } from "react-icons/fa";
+import { useTranslations } from "use-intl";
+import { useParams, useRouter } from "next/navigation";
+
+// Define menu items with name and link
 
 const Navbar = ({ subNav }) => {
-  // Define menu items with name and link
+  const t = useTranslations("navbar");
   const menuItems = [
-    { name: "Home", link: "/" },
-    { name: "packages", link: "/packages" },
-    { name: "Service", link: "/service" },
-    { name: "Store", link: "#" },
-    { name: "Contact Us", link: "#" },
+    { name: t("home"), link: "/" },
+    { name: t("packages"), link: "/packages" },
+    { name: t("service"), link: "/service" },
+    { name: t("store"), link: "#" },
+    { name: t("contact_us"), link: "#" },
   ];
 
+  const [theme, setTheme] = useState(null);
+  const [getLang, setGetLang] = useState(null);
+  const router = useRouter();
+  const param = useParams();
+
+  useEffect(() => {
+    setGetLang(param.locale);
+  }, [param]);
+
+  function HandelLang(e) {
+    const swathedLang = e.target.checked ? "ar" : "en";
+    setGetLang(e.target.checked ? "ar" : "en");
+    router.replace(`${swathedLang}`);
+  }
+
+  // When the component mounts, retrieve the stored theme preference from localStorage
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("color-theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+      document.documentElement.classList.add(savedTheme);
+    } else {
+      setTheme("light"); // Default theme
+      document.documentElement.classList.add("light");
+    }
+  }, []);
+
+  // Apply the selected theme to localStorage and the document when it changes
+  useEffect(() => {
+    if (theme) {
+      localStorage.setItem("color-theme", theme);
+      document.documentElement.classList.remove("dark", "light");
+      document.documentElement.classList.add(theme);
+    }
+  }, [theme]);
+
+  useEffect(() => {
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    if (isDarkMode) {
+      setTheme("dark");
+      document.documentElement.classList.remove("dark", "light");
+      document.documentElement.classList.add("dark");
+    }
+  }, []);
+
   return (
-    <nav>
-      <div className={`${subNav ? "absolute w-full z-50" : "bg-secondary"}`}>
+    <nav className="absolute w-full z-50">
+      <div
+        className={`${
+          subNav ? "absolute w-full z-50" : "bg-secondary dark:bg-black"
+        }`}
+      >
         <div className="navbar text-white py-5 md:px-8 px-2">
           {/* Navbar content with logo and menu for larger screens */}
           <div className="navbar-start flex items-center gap-8 w-full">
@@ -49,64 +103,56 @@ const Navbar = ({ subNav }) => {
               <FiPhoneCall size={25} />
               <span className="text-[14px]">+(20) 123 456 789</span>
             </div>
-            {/* Search icon */}
+
+            {/* Theme Toggle */}
             <label className="swap swap-rotate">
-              {/* this hidden checkbox controls the state */}
-              <input type="checkbox" />
-
-              {/* sun icon */}
-
-              <LuSun className="swap-on" size={25} />
-              {/* moon icon */}
+              <input
+                type="checkbox"
+                checked={theme === "dark"}
+                onChange={(e) => setTheme(e.target.checked ? "dark" : "light")}
+              />
+              <LuSun className="swap-on text-yellow-400" size={25} />
               <FaRegMoon size={25} className="swap-off" />
             </label>
+
+            {/* lang switch */}
+
+            <label className="swap">
+              <input type="checkbox" onChange={(e) => HandelLang(e)} />
+              <div className="swap-off">EN</div>
+              <div className="swap-on">AR</div>
+            </label>
+
+            {/* Shopping bag */}
             <button className="relative mr-1">
-              {/* Shopping bag icon */}
               <HiOutlineShoppingBag size={25} />
-              <span className="absolute top-[-15px] right-[-10px] bg-[#145954] text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+              <span className="absolute top-[-15px] right-[-10px] bg-[#145954] dark:bg-black text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                 0
               </span>
             </button>
 
             {/* Start button */}
-            <button
-              className={`
-          md:flex hidden items-center gap-2 px-6 py-2
-          ${!subNav ? "bg-white text-secondary" : "bg-secondary"} 
-          rounded-[100px]
-           shadow-md transition-all
-            duration-300 ease-in-out transform hover:scale-105 hover:bg-[#1a7f67] 
-            hover:shadow-lg hover:text-white
-          `}
-            >
-              <FaAnglesRight size={16} />
-              Start
-            </button>
+           
 
             {/* Drawer for mobile view */}
             <div className="drawer drawer-end block md:hidden">
-              {/* Input checkbox to toggle the drawer */}
               <input
                 id="my-drawer-4"
                 type="checkbox"
                 className="drawer-toggle"
               />
               <div className="drawer-content">
-                {/* Label for drawer button */}
                 <label htmlFor="my-drawer-4" className="drawer-button">
                   <HiMenuAlt1 size={25} />
                 </label>
               </div>
               <div className="drawer-side">
-                {/* Label to close the drawer */}
                 <label
                   htmlFor="my-drawer-4"
                   aria-label="close sidebar"
                   className="drawer-overlay"
                 ></label>
-                {/* Drawer menu items for mobile */}
-                <ul className="menu bg-base-200 text-base-content min-h-full w-80 p-4">
-                  {/* Mapping over the menu items for mobile drawer */}
+                <ul className="menu bg-secondary dark:bg-black text-white min-h-full w-80 p-4">
                   {menuItems.map((item, index) => (
                     <li key={index}>
                       <Link href={item.link}>{item.name}</Link>
@@ -117,7 +163,7 @@ const Navbar = ({ subNav }) => {
             </div>
           </div>
         </div>
-        <hr />
+        <hr className="border-white dark:border-black" />
       </div>
     </nav>
   );

@@ -47,41 +47,47 @@ const imageList = [
 const ServiceGroup = () => {
   return (
     <div>
-          <section className="bg-bgSecondary py-10">
-            <div className="container">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-0 mt-5 font-semibold justify-center items-center">
-              {imageList.map((item, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className={"mb-5 shadow-lg bg-white transition-all duration-500 p-5 rounded-lg"}
-                    >
-                      <Image
-                        src={item.url}
-                        alt={item.name}
-                        className="mb-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
-                        
-                      />
-                     <div className="text-center md:max-w-sm px-2 py-2">
-                     <h4 className="text-[20px] mx-1 block">
-                        {item.name}
-                      </h4>
-                      <p className="py-1">
-                        Health coach helps educate and motivate people to adopt
-                        healthy, long-term, sustainable behaviors to improve their.
-                      </p>
-                      <div className="flex justify-center mt-5">
-                        <button className="flex  items-center gap-2 px-[24px] py-[9px]  text-[#333] font-medium rounded-[100px] shadow-md transition-all duration-300 ease-linear transform hover:scale-105 hover:bg-[#145954] hover:shadow-lg hover:text-white">
-                          <FaAnglesRight size={18} />
-                          Start Now
-                        </button>
-                      </div>
-                     </div>
-                    </div>
-                  );
-                })}
-              </div>
+          <section className="bg-bgSecondary dark:bg-black dark:text-white py-10 dark:border-t border-white">
+          <div className="container">
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mt-0 mt-5 font-semibold justify-center items-center">
+    {imageList.map((item, index) => {
+      return (
+        <div
+          key={index}
+          className="mb-5 shadow-lg bg-white dark:bg-black dark:text-white transition-all duration-500 p-5 rounded-lg"
+        >
+          <Image
+            src={item.url}
+            alt={item.name}
+            className="mb-4 rounded-lg shadow-lg transition-transform duration-300 ease-in-out hover:scale-105"
+          />
+          <div className="text-center md:max-w-sm px-2 py-2">
+            <h4 className="text-[20px] mx-1 block">
+              {item.name}
+            </h4>
+            <p className="py-1">
+              Health coach helps educate and motivate people to adopt
+              healthy, long-term, sustainable behaviors to improve their.
+            </p>
+            <div className="flex justify-center mt-5">
+              <button className="flex items-center gap-2 
+               px-[24px] py-[9px] text-[#333] dark:text-black font-medium 
+               rounded-[100px] shadow-md transition-all duration-300 ease-linear
+                transform hover:scale-105 hover:bg-[#145954] hover:shadow-lg
+                 hover:text-white
+                 dark:bg-white 
+                 ">
+                <FaAnglesRight size={18} />
+                Start Now
+              </button>
             </div>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
+
                   <div className='mt-10'>
                   <PaginationComponent/>
                   </div>

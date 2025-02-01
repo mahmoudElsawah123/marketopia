@@ -30,42 +30,57 @@ const data = [
 
 const Benefits = () => {
   return (
-    <section className="bg-bgPrimary py-20">
-      <div className="container">
-        <div className="flex justify-between flex-col md:flex-row gap-20">
-        <div className=" flex flex-col text-center md:text-start items-center md:items-start">
-          <span className="text-secondary font-semibold ">YOUR BENEFITS</span>
-          <h2 className="md:text-[42px] text-[30px] my-2 md:my-0">
-            Our Health Coaching <br /> Benefits
-          </h2>
-          <p className="text-smallest mb-5">
-            We specialize in sustainable, guaranteed weight loss programs <br />{" "}
-            to help clients lose weight, increase muscle strength <br /> and
-            improve cardio respiratory health with clinical based fitness
-            training &<br /> nutritional coaching We guarantee results.
-          </p>
-          <div className="flex">
-            <button className="flex  items-center gap-2 px-[24px] py-[9px] bg-secondary text-[#fff] font-medium rounded-[100px] shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#fff] hover:shadow-lg hover:text-primary">
-              <FaAnglesRight size={18} />
-              Start Now
-            </button>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-10 ">
-        {data.map((item , index)=>{
-                return (
-                    <div key={index} className="md:max-w-sm">
-                        <Image src={item.icon} alt={item.title} width={65} height={65} loading="lazy"/>
-                        <h4 className="text-[20px] py-2 font-semibold hover:text-secondary transition-all">{item.title}</h4>
-                        <p className="text-smallest">{item.desc}</p>
-                    </div>
-                )
-            })}
-        </div>
+<section className="bg-bgPrimary py-10 dark:bg-black dark:border-t border-white">
+  <div className="container">
+    <div className="flex justify-between flex-col md:flex-row gap-20">
+      <div className="flex flex-col text-center md:text-start items-center md:items-start">
+        <span className="text-secondary font-semibold dark:text-white">YOUR BENEFITS</span>
+        <h2 className="md:text-[42px] text-[30px] my-2 md:my-0 dark:text-white">
+          Our Health Coaching <br /> Benefits
+        </h2>
+        <p className="text-smallest mb-5 dark:text-white">
+          We specialize in sustainable, guaranteed weight loss programs <br />
+          to help clients lose weight, increase muscle strength <br />
+          and improve cardio respiratory health with clinical-based fitness
+          training & nutritional coaching. We guarantee results.
+        </p>
+        <div className="flex">
+          <button className="flex items-center gap-2 px-[24px] py-[9px]
+           bg-secondary text-[#fff] font-medium rounded-[100px] 
+           shadow-md transition-all duration-300 ease-in-out transform 
+           hover:scale-105 hover:bg-[#fff] hover:shadow-lg hover:text-primary
+           dark:bg-white dark:text-black
+           ">
+            <FaAnglesRight size={18} />
+            Start Now
+          </button>
         </div>
       </div>
-    </section>
+
+      <div className="grid grid-cols-2 gap-10 text-center">
+        {data.map((item, index) => (
+          <div
+            key={index}
+            className="md:max-w-sm max-w-full flex flex-col items-center"
+          >
+            <Image
+              src={item.icon}
+              alt={item.title}
+              width={65}
+              height={65}
+              loading="lazy"
+            />
+            <h4 className="text-[20px] py-2 font-semibold hover:text-secondary transition-all dark:text-white">
+              {item.title}
+            </h4>
+            <p className="text-smallest dark:text-white">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
   );
 };
 

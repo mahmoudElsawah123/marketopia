@@ -56,9 +56,11 @@ const Plan = () => {
           <div className="flex justify-center items-center bg-white rounded-full p-1.5 max-w-sm mx-auto">
             <button
               onClick={() => setIsYearly(true)}
-              className={`inline-block w-1/2 text-center transition-all duration-500 rounded-full font-semibold py-3 px-3 lg:px-11 ${
+              className={`inline-block w-1/2 
+                text-center transition-all 
+                duration-500 rounded-full font-semibold py-3 px-3 lg:px-11 ${
                 isYearly
-                  ? "bg-secondary text-white"
+                  ? "bg-secondary text-white dark:bg-black dark:text-white"
                   : "text-gray-400 hover:text-secondary"
               }`}
             >
@@ -68,7 +70,7 @@ const Plan = () => {
               onClick={() => setIsYearly(false)}
               className={`inline-block w-1/2 text-center transition-all duration-500 rounded-full font-semibold py-3 px-3 lg:px-11 ${
                 !isYearly
-                  ? "bg-secondary text-white"
+                  ? "bg-secondary text-white dark:bg-black dark:text-white"
                   : "text-gray-400 hover:text-secondary"
               }`}
             >
@@ -140,7 +142,7 @@ const Plan = () => {
                         <div
                           key={index}
                           className={`text-[18px] flex items-center font-medium gap-5 py-3 ${
-                            plan.popular ? "text-white" : "text-primary"
+                            plan.popular ? "text-white " : "text-secondary dark:text-black"
                           }`}
                         >
                           <FaCheckCircle />
@@ -153,8 +155,8 @@ const Plan = () => {
                     href="#"
                     className={`py-2.5 px-5 shadow-sm rounded-full transition-all duration-500 text-base font-semibold text-center w-full mx-auto ${
                       plan.popular
-                        ? "bg-white text-secondary"
-                        : "bg-secondary text-white"
+                        ? "bg-white text-secondary dark:bg-black dark:text-white"
+                        : "bg-secondary text-white dark:bg-black dark:text-white"
                     }`}
                   >
                     Purchase Plan

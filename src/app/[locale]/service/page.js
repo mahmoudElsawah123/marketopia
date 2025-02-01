@@ -2,6 +2,10 @@ import PagesBanner from "@/app/components/PagesBanner";
 import ServiceGroup from "@/app/components/ServiceGroup";
 import React from "react";
 
+export const metadata = {
+  title: "service"
+};
+
 const page = () => {
   return (
     <div>

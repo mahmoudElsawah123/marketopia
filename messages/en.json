@@ -1,6 +1,28 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "about": "Go to the about page"
-    }
+  "navbar": {
+    "home": "Home",
+    "packages": "Packages",
+    "service": "Service",
+    "store": "Store",
+    "contact_us": "Contact Us",
+    "banner_title": "Your Health. Your Decision. Our Support.",
+    "banner_desc": "Taking Care Your Body Is Important.",
+    "start": "Start",
+    "start_now": "Start Now"
+  },
+  "welcomeMessage": {
+    "title": "Welcome To Marketopia",
+    "description": "Get Healthy Body With Our Coaching",
+    "about": "About Nutritionist in Anila specializing in sustainable, guaranteed weight loss programs<br />to help clients lose weight, increase muscle strength and improve cardio respiratory<br />health with clinical based fitness training & nutritional coaching.",
+    "start_now": "Start Now",
+    "nutrition_coaching": "Nutrition Coaching",
+    "personal_training": "Personal Training",
+    "support_and_motivation": "Support & Motivation"
+  },
+  "pricing": {
+    "simple_pricing": "Simple Pricing",
+    "choose_best_plan": "Choose The Best Plan That You Want",
+    "coaching_plans_desc": "Anila coaching plans are paid monthly. We recommend <br /> at least 3 month commitment for the best results."
+  
   }
+}

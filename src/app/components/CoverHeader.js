@@ -9,8 +9,10 @@ import "swiper/css";
 import { Autoplay } from "swiper/modules";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useTranslations } from "use-intl";
 
 const CoverHeader = () => {
+    const t = useTranslations("navbar");
   useEffect(() => {
     Aos.init();
   }, []);
@@ -31,15 +33,22 @@ const CoverHeader = () => {
             data-aos="fade-up"
           >
             <h1 className="md:text-[50px] text-[25px] font-bold">
-              Your Health. Your Decision. Our Support.
+              { t("banner_title")}
             </h1>
             <p className="md:text-[30px] sm:text-[16px] ">
-              Taking Care Your Body Is Important
+              { t("banner_desc")}
             </p>
             <div className="flex justify-center mt-5">
-              <button className="flex  items-center gap-2 px-[24px] py-[9px] bg-[#fff] text-[#333] font-medium rounded-[100px] shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#145954] hover:shadow-lg hover:text-white">
+              <button
+                className="flex  items-center gap-2 px-[24px] py-[9px] 
+              bg-[#fff] text-[#333] font-medium rounded-[100px] 
+              shadow-md transition-all duration-300 ease-in-out transform
+               hover:scale-105 hover:bg-[#145954] hover:shadow-lg hover:text-white
+               dark:bg-black dark:text-white
+               "
+              >
                 <FaAnglesRight size={18} />
-                Start Now
+                { t("start_now")}
               </button>
             </div>
           </div>
@@ -50,16 +59,24 @@ const CoverHeader = () => {
         <Image src={SecondCover} alt="cover" fill className="object-cover" />
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center container">
-            <h1 className="md:text-[50px] text-[25px] font-bold">
-              Your Health. Your Decision. Our Support.
+          <h1 className="md:text-[50px] text-[25px] font-bold">
+              { t("banner_title")}
             </h1>
             <p className="md:text-[30px] sm:text-[16px] ">
-              Taking Care Your Body Is Important
+              { t("banner_desc")}
             </p>
             <div className="flex justify-center mt-5">
-              <button className="flex  items-center gap-2 px-[24px] py-[9px] bg-[#fff] text-[#333] font-medium rounded-[100px] shadow-md transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-[#145954] hover:shadow-lg hover:text-white">
+              <button
+                className="flex 
+               items-center gap-2 px-[24px] py-[9px]
+                bg-[#fff] text-[#333] font-medium 
+                rounded-[100px] shadow-md transition-all
+                 duration-300 ease-in-out transform hover:scale-105 hover:bg-[#145954] hover:shadow-lg hover:text-white
+                 dark:bg-black dark:text-white
+                 "
+              >
                 <FaAnglesRight size={18} />
-                Start Now
+                { t("start_now")}
               </button>
             </div>
           </div>

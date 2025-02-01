@@ -4,10 +4,10 @@ import cover from "/public/image/service-breacumb-2.webp";
 import Link from "next/link";
 const PagesBanner = ({ title, subtitle }) => {
   return (
-    <div className="relative h-[300px] w-full">
+    <div className="relative h-[350px] w-full">
       <Image src={cover} alt="cover" fill className="object-cover" loading="lazy"/>
       <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center text-white">
-        <h1 className="text-[42px] font-semibold">{title}</h1>
+        <h1 className="md:text-[42px] text-[30px] font-semibold">{title}</h1>
         <div className="breadcrumbs text-md font-semibold">
           <ul>
             <li>

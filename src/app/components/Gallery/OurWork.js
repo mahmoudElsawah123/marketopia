@@ -26,7 +26,8 @@ export default function OurWork() {
 
   return (
     <>
-      <Swiper
+      <Swiper 
+      dir="ltr"
         slidesPerView={2}
         loop={true}
         spaceBetween={20}

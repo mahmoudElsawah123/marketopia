@@ -4,10 +4,10 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
 import { Fahkwang, Manrope } from "next/font/google";
-import Navbar from "../components/Navbar";
-import CoverHeader from "../components/CoverHeader";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
+import dynamic from "next/dynamic";
+
+const Footer = dynamic(() => import("../components/Footer"));
 
 const fahkwang = Fahkwang({
   weight: ["400", "700"],
@@ -21,7 +21,28 @@ const manrope = Manrope({
   display: "swap",
 });
 
+export const metadata = {
+  title: "Marketopia",
+  description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt qui itaque quaerat possimus voluptas, illum ipsa, earum recusandae nobis dolore,",
+    openGraph: {
+    images:  ``,
+    title: "Marketopia",
+    url : '',
+    site_name : 'IMDb',
+    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Incidunt qui itaque quaerat possimus voluptas, illum ipsa, earum recusandae nobis dolore,",
+    email : '',
+    phone_number : '201067439828',
+    latitude : '30.9763086',
+    longitude : '31.1595836',
+    locality : '',
+    countryName : 'Egypt',
+    streetAddress : ''
+  },
+};
+
+
 export default async function LocaleLayout({ children, params }) {
+  
   const { locale } = await params;
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
@@ -30,17 +51,18 @@ export default async function LocaleLayout({ children, params }) {
 
   // Providing all messages to the client side is the easiest way to get started
   const messages = await getMessages();
+  const direction = locale === "ar" ? "rtl" : "ltr";
 
   return (
-    <html lang={locale}>
+    <html lang={locale} dir={direction}>
       <body>
         <NextIntlClientProvider messages={messages}>
           <header>
-            <Header/>
+            <Header />
           </header>
-          <main className={fahkwang.className}>{children}</main>
+          <div className={fahkwang.className}>{children}</div>
           <footer className={manrope.className}>
-            <Footer/>
+            <Footer />
           </footer>
         </NextIntlClientProvider>
       </body>
