@@ -6,6 +6,8 @@ import "../globals.css";
 import { Fahkwang, Manrope } from "next/font/google";
 import Navbar from "../components/Navbar";
 import CoverHeader from "../components/CoverHeader";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const fahkwang = Fahkwang({
   weight: ["400", "700"],
@@ -21,7 +23,6 @@ const manrope = Manrope({
 
 export default async function LocaleLayout({ children, params }) {
   const { locale } = await params;
-
   // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale)) {
     notFound();
@@ -34,12 +35,13 @@ export default async function LocaleLayout({ children, params }) {
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <div className="className='relative md:min-h-[100vh] h-[500px]">
-            <Navbar/>
-            <CoverHeader/>
-          </div>
+          <header>
+            <Header/>
+          </header>
           <main className={fahkwang.className}>{children}</main>
-          <footer className={manrope.className}></footer>
+          <footer className={manrope.className}>
+            <Footer/>
+          </footer>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -10,9 +10,11 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary : '#020202',
-        secondary : '#545454',
-        badgeColor : '#FF7B02'
+        primary : '#1a1c1b',
+        secondary : '#145954',
+        smallest : '#4c4f4e',
+        bgPrimary : '#faf9f7',
+        bgSecondary : '#f3f3f1'
       },
       container : {
         center : true,
