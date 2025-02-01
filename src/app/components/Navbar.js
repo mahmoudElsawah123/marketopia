@@ -39,6 +39,20 @@ const Navbar = ({ subNav }) => {
     router.replace(`${swathedLang}`);
   }
 
+
+  useEffect(() => {
+    const isDarkMode = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+    if(!localStorage.getItem('color-theme')){
+      if (isDarkMode) {
+        setTheme("dark");
+        document.documentElement.classList.remove("dark", "light");
+        document.documentElement.classList.add("dark");
+      }
+    }
+  }, []);
+
   // When the component mounts, retrieve the stored theme preference from localStorage
   useEffect(() => {
     const savedTheme = localStorage.getItem("color-theme");
@@ -60,16 +74,7 @@ const Navbar = ({ subNav }) => {
     }
   }, [theme]);
 
-  useEffect(() => {
-    const isDarkMode = window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-    if (isDarkMode) {
-      setTheme("dark");
-      document.documentElement.classList.remove("dark", "light");
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
+
 
   return (
     <nav className="absolute w-full z-50">
