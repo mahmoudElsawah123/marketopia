@@ -26,7 +26,7 @@ const CoverHeader = () => {
       className="mySwiper"
     >
       <SwiperSlide className="relative text-white">
-        <Image src={FirstCover} alt="cover" fill className="object-cover" />
+        <Image src={FirstCover} alt="cover" fill className="object-cover" priority/>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div
             className="text-center container flex flex-col justify-center "
@@ -56,7 +56,7 @@ const CoverHeader = () => {
       </SwiperSlide>
 
       <SwiperSlide className="relative text-white">
-        <Image src={SecondCover} alt="cover" fill className="object-cover" />
+        <Image src={SecondCover} alt="cover" fill className="object-cover" priority/>
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <div className="text-center container">
           <h1 className="md:text-[50px] text-[25px] font-bold">
